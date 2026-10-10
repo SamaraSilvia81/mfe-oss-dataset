@@ -1,0 +1,68 @@
+# Traz as versões do DTS1 do CuraData (Supabase) para este repositório
+# e publica uma Release para cada versão.
+#
+# Segredos do repositório (Settings → Secrets and variables → Actions):
+#   SUPABASE_URL         endereço do projeto real (https://xxxx.supabase.co)
+#   SUPABASE_SECRET_KEY  chave secreta do Supabase (service_role ou sb_secret_...)
+
+name: Sincronizar versões do dataset
+
+on:
+  schedule:
+    - cron: "17 9 * * *"     # todo dia, 06:17 em Recife
+  workflow_dispatch:          # botão "Run workflow" na aba Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-versions
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ler as versões do Supabase
+        id: sync
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: node scripts/sync-versions.mjs
+
+      - name: Commit dos arquivos
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "curadata-bot"
+            git config user.email "curadata-bot@users.noreply.github.com"
+            git add -A
+            git commit -m "data: sync dataset versions (${{ steps.sync.outputs.latest_tag }})"
+            git push
+          else
+            echo "Nada mudou."
+          fi
+
+      - name: Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALL_TAGS: ${{ steps.sync.outputs.all_tags }}
+          LATEST_TAG: ${{ steps.sync.outputs.latest_tag }}
+        run: |
+          for tag in $ALL_TAGS; do
+            dir="versions/$tag"
+            title="$tag · $(jq -r .title "$dir/version.json")"
+            latest=false; [ "$tag" = "$LATEST_TAG" ] && latest=true
+            if gh release view "$tag" > /dev/null 2>&1; then
+              gh release edit "$tag" --title "$title" --notes-file "$dir/RELEASE_NOTES.md" --latest=$latest
+            else
+              gh release create "$tag" "$dir"/*.csv "$dir"/*.json \
+                --target "$(git rev-parse HEAD)" --title "$title" \
+                --notes-file "$dir/RELEASE_NOTES.md" --latest=$latest
+            fi
+          done

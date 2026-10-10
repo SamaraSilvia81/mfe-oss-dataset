@@ -1,0 +1,305 @@
+{
+  "dataset": {
+    "name": "DTS1 · MFE-OSS",
+    "title": "Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects",
+    "authors": [
+      "Samara Silvia Sabino",
+      "Vinicius Cardoso Garcia"
+    ],
+    "institution": "Centro de Informática, Universidade Federal de Pernambuco (CIn/UFPE)",
+    "license": "CC BY 4.0",
+    "url": "https://github.com/mfe-guidelines-ufpe/mfe-oss-dataset",
+    "filePrefix": "mfe-oss-dts1"
+  },
+  "groups": [
+    {
+      "id": "identificacao",
+      "label": "Identificação"
+    },
+    {
+      "id": "atividade",
+      "label": "Atividade"
+    },
+    {
+      "id": "metricas",
+      "label": "Métricas"
+    },
+    {
+      "id": "classificacao",
+      "label": "Classificação"
+    },
+    {
+      "id": "curadoria",
+      "label": "Curadoria"
+    }
+  ],
+  "fields": [
+    {
+      "key": "id",
+      "label": "ID",
+      "group": "identificacao",
+      "type": "texto",
+      "description": "Identificador do repositório no DTS1 (MFE-001 a MFE-455)."
+    },
+    {
+      "key": "nome",
+      "label": "Nome",
+      "group": "identificacao",
+      "type": "texto",
+      "description": "Dono e nome do repositório (owner/repo)."
+    },
+    {
+      "key": "url",
+      "label": "URL",
+      "group": "identificacao",
+      "type": "texto",
+      "description": "Endereço do repositório."
+    },
+    {
+      "key": "lote",
+      "label": "Lote",
+      "group": "identificacao",
+      "type": "número",
+      "description": "Lote de curadoria (50 repositórios por lote)."
+    },
+    {
+      "key": "status_repositorio",
+      "label": "Status do repositório",
+      "group": "identificacao",
+      "type": "texto",
+      "description": "Situação do repositório na coleta (ativo, arquivado etc.)."
+    },
+    {
+      "key": "criado_em",
+      "label": "Criado em",
+      "group": "atividade",
+      "type": "data",
+      "description": "Data de criação do repositório."
+    },
+    {
+      "key": "data_commit_primeiro",
+      "label": "Primeiro commit",
+      "group": "atividade",
+      "type": "data",
+      "description": "Data do primeiro commit."
+    },
+    {
+      "key": "data_commit_ultimo",
+      "label": "Último commit",
+      "group": "atividade",
+      "type": "data",
+      "description": "Data do último commit na coleta."
+    },
+    {
+      "key": "hash_commit_primeiro",
+      "label": "Hash do primeiro commit",
+      "group": "atividade",
+      "type": "texto",
+      "description": "Hash curto do primeiro commit."
+    },
+    {
+      "key": "hash_commit_ultimo",
+      "label": "Hash do último commit",
+      "group": "atividade",
+      "type": "texto",
+      "description": "Hash curto do último commit na coleta."
+    },
+    {
+      "key": "stars",
+      "label": "Stars",
+      "group": "metricas",
+      "type": "número",
+      "description": "Estrelas no GitHub na coleta."
+    },
+    {
+      "key": "forks",
+      "label": "Forks",
+      "group": "metricas",
+      "type": "número",
+      "description": "Forks na coleta."
+    },
+    {
+      "key": "commits",
+      "label": "Commits",
+      "group": "metricas",
+      "type": "número",
+      "description": "Total de commits."
+    },
+    {
+      "key": "contribuidores",
+      "label": "Contribuidores",
+      "group": "metricas",
+      "type": "número",
+      "description": "Total de contribuidores."
+    },
+    {
+      "key": "prs_totais",
+      "label": "PRs",
+      "group": "metricas",
+      "type": "número",
+      "description": "Total de pull requests."
+    },
+    {
+      "key": "issues_open",
+      "label": "Issues abertas",
+      "group": "metricas",
+      "type": "número",
+      "description": "Issues abertas na coleta."
+    },
+    {
+      "key": "issues_closed",
+      "label": "Issues fechadas",
+      "group": "metricas",
+      "type": "número",
+      "description": "Issues fechadas na coleta."
+    },
+    {
+      "key": "churn_semanal",
+      "label": "Churn semanal",
+      "group": "metricas",
+      "type": "número",
+      "description": "Linhas alteradas por semana."
+    },
+    {
+      "key": "framework",
+      "label": "Framework",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Framework principal da interface."
+    },
+    {
+      "key": "tec_integracao",
+      "label": "Técnica de integração",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Como os microfrontends são compostos (Module Federation, Single-SPA etc.)."
+    },
+    {
+      "key": "estrutura",
+      "label": "Estrutura",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Monorepo ou polyrepo."
+    },
+    {
+      "key": "evidencias",
+      "label": "Evidências da estrutura",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Ferramentas que evidenciam a estrutura (Nx, Lerna, workspaces etc.)."
+    },
+    {
+      "key": "licenca",
+      "label": "Licença",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Licença declarada no repositório."
+    },
+    {
+      "key": "categ_licenca",
+      "label": "Categoria da licença",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Permissiva, copyleft ou outra."
+    },
+    {
+      "key": "desenvolvido_por",
+      "label": "Desenvolvido por",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Comunidade, empresa, pessoa etc."
+    },
+    {
+      "key": "finalidade",
+      "label": "Finalidade",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Produção, estudo, demonstração etc."
+    },
+    {
+      "key": "estilo_api",
+      "label": "Estilo de API",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Como o frontend fala com o backend (REST, GraphQL etc.)."
+    },
+    {
+      "key": "qtd_modulos_amplo",
+      "label": "Módulos MFE (amplo)",
+      "group": "classificacao",
+      "type": "número",
+      "description": "Quantidade de módulos pelo critério amplo [MET-DEC-001]."
+    },
+    {
+      "key": "qtd_modulos_restrito",
+      "label": "Módulos MFE (restrito)",
+      "group": "classificacao",
+      "type": "número",
+      "description": "Quantidade de módulos pelo critério restrito [MET-DEC-001]."
+    },
+    {
+      "key": "documentacao_valida",
+      "label": "Documentação válida",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Avaliação da documentação do repositório."
+    },
+    {
+      "key": "estrutura_pastas",
+      "label": "Estrutura de pastas",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Avaliação da organização de pastas e arquitetura."
+    },
+    {
+      "key": "escopo_definido",
+      "label": "Escopo definido",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Se o objetivo do repositório está claro."
+    },
+    {
+      "key": "conteudo_repos",
+      "label": "Conteúdo do repositório",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Descrição do que o repositório contém."
+    },
+    {
+      "key": "detalhes_mfe",
+      "label": "Detalhes do MFE",
+      "group": "classificacao",
+      "type": "texto",
+      "description": "Evidências e detalhes da implementação de microfrontend."
+    },
+    {
+      "key": "curadoria_status",
+      "label": "Status da curadoria",
+      "group": "curadoria",
+      "type": "texto",
+      "description": "pending, in_progress, pending_review, reviewed, divergence ou adjudicated."
+    },
+    {
+      "key": "validado",
+      "label": "Validado",
+      "group": "curadoria",
+      "type": "booleano",
+      "description": "true quando a curadoria terminou (adjudicado). Só os validados têm classificação revisada por três curadores."
+    },
+    {
+      "key": "data_validacao",
+      "label": "Data da validação",
+      "group": "curadoria",
+      "type": "data",
+      "description": "Data da adjudicação (AAAA-MM-DD)."
+    }
+  ],
+  "curation_status": {
+    "pending": "Pendente",
+    "in_progress": "Em andamento",
+    "pending_review": "Aguardando revisão",
+    "reviewed": "Revisado",
+    "divergence": "Divergência",
+    "adjudicated": "Validado (adjudicado)"
+  }
+}

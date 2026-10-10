@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Se usar este dataset, cite a versão usada."
+type: dataset
+title: "Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects (DTS1 · MFE-OSS)"
+authors:
+  - family-names: "Sabino"
+    given-names: "Samara Silvia"
+    affiliation: "Centro de Informática, Universidade Federal de Pernambuco"
+  - family-names: "Garcia"
+    given-names: "Vinicius Cardoso"
+    affiliation: "Centro de Informática, Universidade Federal de Pernambuco"
+version: "v0.0.0"
+date-released: "2026-10-10"
+license: CC-BY-4.0
+repository-code: "https://github.com/mfe-guidelines-ufpe/mfe-oss-dataset"
+keywords:
+  - microfrontends
+  - mining software repositories
+  - software architecture
+  - technical debt
+  - dataset
