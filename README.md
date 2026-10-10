@@ -5,6 +5,12 @@ Dataset de projetos open-source de **microfrontend** no GitHub, construído na p
 O DTS1 parte de **2.793 candidatos** encontrados por mineração automatizada e chega a **455 repositórios**, que passam por curadoria manual com validação cruzada entre três curadores.
 
 <!-- latest:start -->
+| Versão atual | **v1.1.0** · Lote 1 validado e lote 2 catalogado |
+|---|---|
+| Retrato de | 10/10/2026 |
+| Repositórios | 455 |
+| Validados | 28 |
+| Curadoria | Validado (adjudicado): 28 · Divergência: 21 · Aguardando revisão: 31 · Pendente: 375 |
 <!-- latest:end -->
 
 ## Baixar
@@ -23,6 +29,10 @@ Para reproduzir uma análise, use sempre uma **versão numerada** (pasta `versio
 Cada versão congela os 455 repositórios como estavam numa data. Versões não mudam depois de criadas: uma correção vira uma versão nova.
 
 <!-- versions:start -->
+| Versão | Título | Retrato de | Validados | Arquivos |
+|---|---|---|---|---|
+| v1.1.0 | Lote 1 validado e lote 2 catalogado | 10/10/2026 | 28 | [pasta](versions/v1.1.0) |
+| v1.0.0 | Lote 1 Catalogado *(reconstruída)* | 09/12/2025 | 0 | [pasta](versions/v1.0.0) |
 <!-- versions:end -->
 
 O que mudou em cada uma está no [CHANGELOG](CHANGELOG.md).
