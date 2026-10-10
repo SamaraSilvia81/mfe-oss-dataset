@@ -1,0 +1,25 @@
+{
+  "tag": "v1.0.0",
+  "title": "Lote 1 Catalogado",
+  "changelog": "Retrato do DTS1 em 09/12/2025, reconstruído a partir das datas de proposta, revisão e adjudicação.",
+  "reference_date": "2025-12-09",
+  "reconstructed": true,
+  "created_at": "2026-10-10T22:49:21.542992+00:00",
+  "record_count": 455,
+  "validated_count": 0,
+  "by_status": {
+    "pending": 405,
+    "pending_review": 50
+  },
+  "diff": {
+    "added": 455,
+    "changed": 0,
+    "removed": 0,
+    "previous_tag": null,
+    "changed_fields": {}
+  },
+  "sha256": {
+    "csv": "e5051f925c3a9c83ddc55ca705b0e98a4b50625cb9563d899efcf30913791924",
+    "csv_validados": "57b6a600704405c8fc590efe735e384e8cf66acf9ac3e360cf92b35271805202"
+  }
+}
