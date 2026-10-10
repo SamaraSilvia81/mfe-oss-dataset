@@ -1,4 +1,20 @@
-# DTS1 · MFE-OSS: Mapping the Microfrontend Ecosystem
+<div align="center">
+
+<h1>DTS1 · MFE-OSS</h1>
+
+<p><b>Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects</b></p>
+
+<!-- badges:start -->
+<!-- badges:end -->
+
+![Microfrontends](https://img.shields.io/badge/Microfrontends-171717?style=for-the-badge)
+![MSR](https://img.shields.io/badge/Mineração%20de%20Repositórios-171717?style=for-the-badge)
+![GitHub](https://img.shields.io/badge/GitHub-171717?style=for-the-badge&logo=github&logoColor=FFFFFF)
+![CIn/UFPE](https://img.shields.io/badge/CIn-UFPE-AF0421?style=for-the-badge)
+
+</div>
+
+<br>
 
 Dataset de projetos open-source de **microfrontend** no GitHub, construído na pesquisa de mestrado de **Samara Silvia Sabino** no Centro de Informática da UFPE (CIn/UFPE), sob orientação do **Prof. Vinicius Cardoso Garcia**.
 

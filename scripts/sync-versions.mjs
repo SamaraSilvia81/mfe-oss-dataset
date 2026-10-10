@@ -262,10 +262,23 @@ if (fs.existsSync(cffPath)) {
   write('CITATION.cff', cff)
 }
 
+// Badges do README (shields.io estático: funciona com o repositório público ou privado)
+const enc = (t) => encodeURIComponent(String(t).replace(/-/g, '--').replace(/_/g, '__'))
+const badge = (label, message, color, extra = '') =>
+  `![${label}](https://img.shields.io/badge/${enc(label)}-${enc(message)}-${color}?style=for-the-badge${extra})`
+
 const readmePath = path.join(ROOT, 'README.md')
 if (fs.existsSync(readmePath)) {
   let readme = fs.readFileSync(readmePath, 'utf8')
   const lm = index[index.length - 1]
+  readme = replaceBlock(readme, 'badges', [
+    badge('versão', lm.tag, 'AF0421'),
+    badge('retrato', br(lm.reference_date), '231F20'),
+    badge('repositórios', lm.record_count, '231F20'),
+    badge('validados', `${lm.validated_count ?? 0} de ${lm.record_count}`, '231F20'),
+    badge('versões', index.length, '231F20'),
+    badge('licença', META.dataset.license, 'E0E1E0', '&labelColor=231F20'),
+  ].join('\n'))
   readme = replaceBlock(readme, 'latest', [
     `| Versão atual | **${lm.tag}** · ${lm.title} |`,
     '|---|---|',
