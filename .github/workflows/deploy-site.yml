@@ -1,0 +1,55 @@
+# Publica o site (pasta /site) no GitHub Pages.
+# Roda quando o site ou os dados mudam e logo depois da sincronização diária,
+# porque commits feitos pelo bot não disparam o evento "push" sozinhos.
+#
+# Requisitos: Settings → Pages → Source = "GitHub Actions".
+# Em repositório privado, o GitHub Pages exige plano pago.
+
+name: Publicar site
+
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', 'versions/**', 'latest/**', 'data/**', 'CITATION.cff', 'CHANGELOG.md', 'DATA_DICTIONARY.md', 'LICENSE']
+  workflow_run:
+    workflows: ['Sincronizar versões do dataset']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+        working-directory: site
+      - run: npm run build
+        working-directory: site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
