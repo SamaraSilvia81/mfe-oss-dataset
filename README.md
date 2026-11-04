@@ -2,21 +2,23 @@
 
 <div align="center">
 
+**English** · [Português](README.pt-BR.md)
+
 <h1>DTS1 · MFE-OSS</h1>
 
 <p><b>Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects</b></p>
 
 <!-- badges:start -->
-![versão](https://img.shields.io/badge/vers%C3%A3o-v1.1.0-AF0421?style=for-the-badge)
-![retrato](https://img.shields.io/badge/retrato-10%2F10%2F2026-231F20?style=for-the-badge)
-![repositórios](https://img.shields.io/badge/reposit%C3%B3rios-455-231F20?style=for-the-badge)
-![validados](https://img.shields.io/badge/validados-28%20de%20455-231F20?style=for-the-badge)
-![versões](https://img.shields.io/badge/vers%C3%B5es-2-231F20?style=for-the-badge)
-![licença](https://img.shields.io/badge/licen%C3%A7a-CC%20BY%204.0-E0E1E0?style=for-the-badge&labelColor=231F20)
+![version](https://img.shields.io/badge/version-v1.1.0-AF0421?style=for-the-badge)
+![snapshot](https://img.shields.io/badge/snapshot-2026--10--10-231F20?style=for-the-badge)
+![repositories](https://img.shields.io/badge/repositories-455-231F20?style=for-the-badge)
+![validated](https://img.shields.io/badge/validated-28%20of%20455-231F20?style=for-the-badge)
+![versions](https://img.shields.io/badge/versions-2-231F20?style=for-the-badge)
+![license](https://img.shields.io/badge/license-CC%20BY%204.0-E0E1E0?style=for-the-badge&labelColor=231F20)
 <!-- badges:end -->
 
 ![Microfrontends](https://img.shields.io/badge/Microfrontends-171717?style=for-the-badge)
-![MSR](https://img.shields.io/badge/Mineração%20de%20Repositórios-171717?style=for-the-badge)
+![MSR](https://img.shields.io/badge/Mining%20Software%20Repositories-171717?style=for-the-badge)
 ![GitHub](https://img.shields.io/badge/GitHub-171717?style=for-the-badge&logo=github&logoColor=FFFFFF)
 ![CIn/UFPE](https://img.shields.io/badge/CIn-UFPE-AF0421?style=for-the-badge)
 
@@ -24,89 +26,108 @@
 
 <br>
 
-Dataset de projetos open-source de **microfrontend** no GitHub, construído na pesquisa de mestrado de **Samara Silvia Sabino** no Centro de Informática da UFPE (CIn/UFPE), sob orientação do **Prof. Vinicius Cardoso Garcia**.
+A dataset of open-source **microfrontend** projects on GitHub, built as part of the master's research of **Samara Silvia Sabino** at the Centro de Informática of the Universidade Federal de Pernambuco (CIn/UFPE), advised by **Prof. Vinicius Cardoso Garcia**.
 
-O DTS1 parte de **2.793 candidatos** encontrados por mineração automatizada e chega a **455 repositórios**, que passam por curadoria manual com validação cruzada entre três curadores.
+DTS1 starts from **2,793 candidates** found by automated mining and arrives at **455 repositories**, which then go through manual curation with cross-validation among three curators.
+
+Explore the dataset in the browser at **[mfe-oss-dataset.vercel.app](https://mfe-oss-dataset.vercel.app)**.
 
 <!-- latest:start -->
-| Versão atual | **v1.1.0** · Lote 1 validado e lote 2 catalogado |
+| Current version | **v1.1.0** · Lote 1 validado e lote 2 catalogado |
 |---|---|
-| Retrato de | 10/10/2026 |
-| Repositórios | 455 |
-| Validados | 28 |
-| Curadoria | Validado (adjudicado): 28 · Divergência: 21 · Aguardando revisão: 31 · Pendente: 375 |
+| Snapshot date | 2026-10-10 |
+| Repositories | 455 |
+| Validated | 28 |
+| Curation | Validated (adjudicated): 28 · Divergence: 21 · Awaiting review: 31 · Pending: 375 |
 <!-- latest:end -->
 
-## Baixar
+## Download
 
-| Arquivo | Conteúdo |
+| File | Contents |
 |---|---|
-| [`latest/mfe-oss-dts1-latest.csv`](latest/mfe-oss-dts1-latest.csv) | versão mais nova, os 455 repositórios |
-| [`latest/mfe-oss-dts1-latest-validados.csv`](latest/mfe-oss-dts1-latest-validados.csv) | versão mais nova, só os validados |
-| [`latest/mfe-oss-dts1-latest.json`](latest/mfe-oss-dts1-latest.json) | versão mais nova em JSON, com metadados e dicionário |
-| [Releases](../../releases) | cada versão congelada, com os arquivos anexos |
+| [`latest/mfe-oss-dts1-latest.csv`](latest/mfe-oss-dts1-latest.csv) | latest version, all 455 repositories |
+| [`latest/mfe-oss-dts1-latest-validados.csv`](latest/mfe-oss-dts1-latest-validados.csv) | latest version, validated repositories only |
+| [`latest/mfe-oss-dts1-latest.json`](latest/mfe-oss-dts1-latest.json) | latest version in JSON, with metadata and data dictionary |
+| [Releases](../../releases) | every frozen version, with the files attached |
 
-Para reproduzir uma análise, use sempre uma **versão numerada** (pasta `versions/` ou Releases), e não a `latest/`, que muda a cada versão nova.
+To reproduce an analysis, always use a **numbered version** (the `versions/` folder or the Releases), not `latest/`, which changes with every new version.
 
-## Versões
+## Versions
 
-Cada versão congela os 455 repositórios como estavam numa data. Versões não mudam depois de criadas: uma correção vira uma versão nova.
+Each version freezes the 455 repositories as they were on a given date. Versions never change after they are created: a correction becomes a new version.
 
 <!-- versions:start -->
-| Versão | Título | Retrato de | Validados | Arquivos |
+| Version | Title | Snapshot date | Validated | Files |
 |---|---|---|---|---|
-| v1.1.0 | Lote 1 validado e lote 2 catalogado | 10/10/2026 | 28 | [pasta](versions/v1.1.0) |
-| v1.0.0 | Lote 1 Catalogado *(reconstruída)* | 09/12/2025 | 0 | [pasta](versions/v1.0.0) |
+| v1.1.0 | Lote 1 validado e lote 2 catalogado | 2026-10-10 | 28 | [folder](versions/v1.1.0) |
+| v1.0.0 | Lote 1 Catalogado *(reconstructed)* | 2025-12-09 | 0 | [folder](versions/v1.0.0) |
 <!-- versions:end -->
 
-O que mudou em cada uma está no [CHANGELOG](CHANGELOG.md).
+Version titles and changelogs come from the curation tool and are written in Portuguese. What changed in each version is in the [CHANGELOG](CHANGELOG.md).
 
-**Número da versão:**
-- **correção** (v1.0.**1**): ajustes pontuais em valores já publicados;
-- **avanço** (v1.**1**.0): repositórios validados, reclassificados ou que mudaram de etapa;
-- **mudança de critério** (v**2**.0.0): colunas novas ou mudança na regra de classificação.
+**Version numbers:**
+- **patch** (v1.0.**1**): one-off fixes to values already published;
+- **minor** (v1.**1**.0): repositories validated, reclassified or moved to another stage;
+- **major** (v**2**.0.0): new columns or a change in a classification rule.
 
-Versões marcadas como *reconstruídas* retratam uma data passada. Foram remontadas a partir das datas de proposta, revisão e adjudicação de cada repositório.
+Versions marked as *reconstructed* depict a past date. They were rebuilt from the proposal, review and adjudication dates of each repository.
 
-## Como o dataset é construído
+## How the dataset is built
 
-1. **Mineração e identificação.** Busca no GitHub por heurísticas de microfrontend (Module Federation, Single-SPA, Bit, entre outras) e extração de metadados.
-2. **Filtragem e validação.** Filtro de maturidade, *quality gate* e *sanity check*. Cada fase guarda os aprovados e os rejeitados.
-3. **Mineração profunda.** Metadados detalhados dos aprovados.
-4. **Curadoria manual.** Cada repositório passa por três pessoas: **analista** (cataloga), **revisor** (confere) e **adjudicador** (decide). O valor só é validado com unanimidade entre os três. Sem unanimidade, abre-se uma reunião; se ainda assim não houver acordo, decide o orientador.
+1. **Mining and identification.** GitHub search using microfrontend heuristics (Module Federation, Single-SPA, qiankun, among others) and metadata extraction.
+2. **Filtering and validation.** Maturity filter, quality gate and sanity check. Each stage keeps both the accepted and the rejected repositories.
+3. **Deep mining.** Detailed metadata for the accepted repositories.
+4. **Manual curation.** Each repository goes through three people: an **analyst** (catalogs), a **reviewer** (checks) and an **adjudicator** (decides). A value is validated only when all three agree. Without unanimity, a meeting is held; if there is still no agreement, the advisor decides.
 
-A curadoria é feita no **CuraData**, ferramenta construída para esta pesquisa. As versões publicadas aqui saem direto dele.
+The code and the intermediate files of steps 1 to 3 are in the [`pipeline/`](pipeline) folder. Curation (step 4) is done in **CuraData**, a tool built for this research, and the versions published here come straight from it.
 
-## Colunas
+| Stage | Repositories | Removed |
+|---|---|---|
+| Candidates (heuristics) | 2,793 | |
+| Maturity filter | 1,205 | 1,578 |
+| Quality gate | 842 | 363 |
+| Sanity check | 455 | 387 |
 
-As 37 colunas estão descritas no [dicionário de dados](DATA_DICTIONARY.md). Resumo:
+## Columns
 
-- **Identificação e atividade:** id, nome, URL, lote, datas e hashes de commit.
-- **Métricas:** stars, forks, commits, contribuidores, PRs, issues e churn.
-- **Classificação:** framework, técnica de integração, estrutura (monorepo ou polyrepo), evidências, licença, quem desenvolve, finalidade, estilo de API, quantidade de módulos e avaliação de documentação, organização e escopo.
-- **Curadoria:** status, `validado` e data da validação.
+All 37 columns are described in the [data dictionary](DATA_DICTIONARY.md) (in Portuguese). Summary:
 
-**Atenção:** só os repositórios com `validado = true` têm classificação revisada pelos três curadores. Nos outros, a classificação ainda é a da mineração.
+- **Identification and activity:** id, name, URL, curation batch, commit dates and hashes.
+- **Metrics:** stars, forks, commits, contributors, PRs, issues and churn.
+- **Classification:** framework, integration technique, structure (monorepo or polyrepo), evidence, license, who develops it, purpose, API style, number of modules, and assessment of documentation, organization and scope.
+- **Curation:** status, `validado` and validation date.
 
-## Como citar
+Column names are in Portuguese, as in the published files.
 
-Use o botão **Cite this repository**, no menu ao lado, ou:
+**Note:** only repositories with `validado = true` have a classification reviewed by the three curators. In the others, the classification still comes from mining.
 
-> Samara Silvia Sabino; Vinicius Cardoso Garcia. *Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects* (DTS1 · MFE-OSS), versão vX.Y.Z. Centro de Informática, Universidade Federal de Pernambuco (CIn/UFPE). https://github.com/mfe-guidelines-ufpe/mfe-oss-dataset
+## Curation team
 
-Sempre informe a versão usada.
+- **Samara Silvia Sabino** (CIn/UFPE)
+- **Fagner Fernandes** (CIn/UFPE)
+- **Saulo Henrique do Nascimento Aguiar** (CIn/UFPE)
+- **Vinicius Cardoso Garcia** (CIn/UFPE), advisor
 
-## Licença
+## How to cite
 
-Os dados estão sob [CC BY 4.0](LICENSE): podem ser usados e adaptados para qualquer fim, com atribuição.
+Use the **Cite this repository** button in the side menu, or:
 
-## Manutenção
+> Samara Silvia Sabino; Vinicius Cardoso Garcia. *Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects* (DTS1 · MFE-OSS), version vX.Y.Z. Centro de Informática, Universidade Federal de Pernambuco (CIn/UFPE). https://github.com/SamaraSilvia81/mfe-oss-dataset
 
-Os arquivos deste repositório são gerados automaticamente. Uma GitHub Action (`.github/workflows/sync-versions.yml`) roda todo dia, lê as versões do CuraData e:
-- grava os arquivos de cada versão nova;
-- atualiza a `latest/`, o changelog, a citação e esta página;
-- cria uma Release para cada versão.
+Always state the version you used.
 
-Não edite os arquivos gerados à mão: a próxima sincronização sobrescreve.
+## License
 
-Encontrou um erro num repositório? Abra uma [issue](../../issues) com o ID (por exemplo, `MFE-042`), o campo e o valor correto.
+- **Data** (`versions/`, `latest/` and the files at the root): [CC BY 4.0](LICENSE). They can be used and adapted for any purpose, with attribution.
+- **Code** of the mining pipeline (`pipeline/`): [MIT](pipeline/LICENSE).
+
+## Maintenance
+
+The data files in this repository are generated automatically. A GitHub Action (`.github/workflows/sync-versions.yml`) runs every day, reads the versions from CuraData and:
+- writes the files of every new version;
+- updates `latest/`, the changelog, the citation and the tables in this page and in the Portuguese one;
+- creates a Release for every version.
+
+Do not edit generated files by hand: the next sync overwrites them.
+
+Found an error in a repository? Open an [issue](../../issues) with the ID (for example, `MFE-042`), the field and the correct value.

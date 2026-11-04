@@ -8,7 +8,7 @@
  *   versions/<tag>/  arquivos da versão (CSV, CSV só com validados, JSON, metadados, notas da release)
  * E, a cada rodada:
  *   latest/          cópia da versão mais nova
- *   versions/index.json, CHANGELOG.md, CITATION.cff e a tabela de versões do README
+ *   versions/index.json, CHANGELOG.md, CITATION.cff e as tabelas de versões do README.md e do README.pt-BR.md
  *
  * Os registros de uma versão são imutáveis no banco: se a pasta da versão já existe, os
  * arquivos de dados não são regravados. Título e changelog podem mudar e são atualizados.
@@ -267,33 +267,70 @@ const enc = (t) => encodeURIComponent(String(t).replace(/-/g, '--').replace(/_/g
 const badge = (label, message, color, extra = '') =>
   `![${label}](https://img.shields.io/badge/${enc(label)}-${enc(message)}-${color}?style=for-the-badge${extra})`
 
-const readmePath = path.join(ROOT, 'README.md')
-if (fs.existsSync(readmePath)) {
+// O README existe em dois idiomas: README.md (inglês, principal) e README.pt-BR.md.
+// Os blocos marcados com <!-- nome:start --> / <!-- nome:end --> são regravados nos dois.
+const STATUS_EN = {
+  pending: 'Pending', in_progress: 'In progress', pending_review: 'Awaiting review',
+  reviewed: 'Reviewed', divergence: 'Divergence', adjudicated: 'Validated (adjudicated)',
+}
+const README_LANGS = [
+  {
+    file: 'README.md',
+    date: (iso) => iso.slice(0, 10),
+    status: (k) => STATUS_EN[k] || k,
+    t: {
+      version: 'version', snapshot: 'snapshot', repos: 'repositories', validated: 'validated',
+      of: 'of', versions: 'versions', license: 'license',
+      current: 'Current version', snapshotOf: 'Snapshot date', reposCol: 'Repositories',
+      validatedCol: 'Validated', curation: 'Curation', title: 'Title', files: 'Files',
+      folder: 'folder', reconstructed: 'reconstructed',
+    },
+  },
+  {
+    file: 'README.pt-BR.md',
+    date: br,
+    status: (k) => META.curation_status[k] || k,
+    t: {
+      version: 'versão', snapshot: 'retrato', repos: 'repositórios', validated: 'validados',
+      of: 'de', versions: 'versões', license: 'licença',
+      current: 'Versão atual', snapshotOf: 'Retrato de', reposCol: 'Repositórios',
+      validatedCol: 'Validados', curation: 'Curadoria', title: 'Título', files: 'Arquivos',
+      folder: 'pasta', reconstructed: 'reconstruída',
+    },
+  },
+]
+
+const lm = index[index.length - 1]
+for (const lang of README_LANGS) {
+  const readmePath = path.join(ROOT, lang.file)
+  if (!fs.existsSync(readmePath)) continue
+  const { t } = lang
+  const statusText = ['adjudicated', 'divergence', 'reviewed', 'pending_review', 'in_progress', 'pending']
+    .filter(k => lm.by_status?.[k]).map(k => `${lang.status(k)}: ${lm.by_status[k]}`).join(' · ')
   let readme = fs.readFileSync(readmePath, 'utf8')
-  const lm = index[index.length - 1]
   readme = replaceBlock(readme, 'badges', [
-    badge('versão', lm.tag, 'AF0421'),
-    badge('retrato', br(lm.reference_date), '231F20'),
-    badge('repositórios', lm.record_count, '231F20'),
-    badge('validados', `${lm.validated_count ?? 0} de ${lm.record_count}`, '231F20'),
-    badge('versões', index.length, '231F20'),
-    badge('licença', META.dataset.license, 'E0E1E0', '&labelColor=231F20'),
+    badge(t.version, lm.tag, 'AF0421'),
+    badge(t.snapshot, lang.date(lm.reference_date), '231F20'),
+    badge(t.repos, lm.record_count, '231F20'),
+    badge(t.validated, `${lm.validated_count ?? 0} ${t.of} ${lm.record_count}`, '231F20'),
+    badge(t.versions, index.length, '231F20'),
+    badge(t.license, META.dataset.license, 'E0E1E0', '&labelColor=231F20'),
   ].join('\n'))
   readme = replaceBlock(readme, 'latest', [
-    `| Versão atual | **${lm.tag}** · ${lm.title} |`,
+    `| ${t.current} | **${lm.tag}** · ${lm.title} |`,
     '|---|---|',
-    `| Retrato de | ${br(lm.reference_date)} |`,
-    `| Repositórios | ${lm.record_count} |`,
-    `| Validados | ${lm.validated_count ?? '—'} |`,
-    `| Curadoria | ${statusLine(lm.by_status)} |`,
+    `| ${t.snapshotOf} | ${lang.date(lm.reference_date)} |`,
+    `| ${t.reposCol} | ${lm.record_count} |`,
+    `| ${t.validatedCol} | ${lm.validated_count ?? '—'} |`,
+    `| ${t.curation} | ${statusText} |`,
   ].join('\n'))
   readme = replaceBlock(readme, 'versions', [
-    '| Versão | Título | Retrato de | Validados | Arquivos |',
+    `| ${t.version[0].toUpperCase() + t.version.slice(1)} | ${t.title} | ${t.snapshotOf} | ${t.validatedCol} | ${t.files} |`,
     '|---|---|---|---|---|',
     ...[...index].reverse().map(m =>
-      `| ${m.tag} | ${m.title}${m.reconstructed ? ' *(reconstruída)*' : ''} | ${br(m.reference_date)} | ${m.validated_count ?? '—'} | [pasta](versions/${m.tag}) |`),
+      `| ${m.tag} | ${m.title}${m.reconstructed ? ` *(${t.reconstructed})*` : ''} | ${lang.date(m.reference_date)} | ${m.validated_count ?? '—'} | [${t.folder}](versions/${m.tag}) |`),
   ].join('\n'))
-  write('README.md', readme)
+  write(lang.file, readme)
 }
 
 // Saída para a Action

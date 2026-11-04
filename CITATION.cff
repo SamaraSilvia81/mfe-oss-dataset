@@ -12,7 +12,7 @@ authors:
 version: "v1.1.0"
 date-released: "2026-10-10"
 license: CC-BY-4.0
-repository-code: "https://github.com/mfe-guidelines-ufpe/mfe-oss-dataset"
+repository-code: "https://github.com/SamaraSilvia81/mfe-oss-dataset"
 keywords:
   - microfrontends
   - mining software repositories
