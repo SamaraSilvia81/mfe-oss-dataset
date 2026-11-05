@@ -20,4 +20,4 @@ Retrato do DTS1 em 10/10/2026.
 
 ### Como citar
 
-Samara Silvia Sabino; Vinicius Cardoso Garcia. Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects (DTS1 · MFE-OSS), versão v1.1.0. Centro de Informática, Universidade Federal de Pernambuco (CIn/UFPE), 2026. https://github.com/mfe-guidelines-ufpe/mfe-oss-dataset
+Samara Silvia Sabino; Vinicius Cardoso Garcia. Mapping the Microfrontend Ecosystem: A Dataset of Open-Source Projects (DTS1 · MFE-OSS), versão v1.1.0. Centro de Informática, Universidade Federal de Pernambuco (CIn/UFPE), 2026. https://github.com/SamaraSilvia81/mfe-oss-dataset
